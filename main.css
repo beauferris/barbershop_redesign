@@ -4,7 +4,8 @@ body {
     grid-template-rows: 50px 1000px;
     grid-template-areas: 
     "header header" 
-    "main main";
+    "main main"
+    "photo photo";
     /* "price photo"
     "footer footer"; */
     margin: 0;
@@ -28,15 +29,22 @@ body {
   }
   
   
-  .photo{
+  .photos{
     grid-area: photo;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1,500px);
     background-color: black;
   }
-  .shop{
+
+
+  
+  .gallery_img{
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
   .price{
     grid-area:price;
     /* background-image: url("price.png");  */
