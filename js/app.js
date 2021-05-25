@@ -9,7 +9,7 @@ renderer.setPixelRatio( window.devicePixelRatio );
 container = document.getElementById( '2' );
 let dim = container.getBoundingClientRect();
 renderer.setSize(dim.width, dim.height);
-console.log(dim)
+
 // Add the renderer.domElement, which is a canvas, to the container div.
 container.appendChild( renderer.domElement );
 
@@ -21,6 +21,19 @@ var camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHei
 //var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 camera.position.set( -1,0,30);
+
+
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    dim = container.getBoundingClientRect();
+    renderer.setSize(dim.width, dim.height);
+
+}
 
 // // // Load Light
 // var ambientLight = new THREE.AmbientLight( 0xCCCCCC);
