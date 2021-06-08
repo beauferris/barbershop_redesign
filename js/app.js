@@ -20,7 +20,7 @@ var camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHei
 // Load the Orbitcontroller
 //var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
-camera.position.set( -1,0,30);
+camera.position.set( 0,0,30);
 
 
 window.addEventListener( 'resize', onWindowResize, false );
