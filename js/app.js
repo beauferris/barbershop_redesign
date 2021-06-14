@@ -1,10 +1,11 @@
 //Load 3D scene 
 const scene = new THREE.Scene();
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setClearColor( 0x2c3e50 );
-renderer.setPixelRatio( window.devicePixelRatio );
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setClearColor( 0x000000, 0 );
+scene.background = null;
 // Get a reference to the container div
 container = document.getElementById( '2' );
 let dim = container.getBoundingClientRect();
@@ -20,7 +21,7 @@ var camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHei
 // Load the Orbitcontroller
 //var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
-camera.position.set( 0,0,30);
+camera.position.set( 0,0.2,30);
 
 
 window.addEventListener( 'resize', onWindowResize, false );
@@ -91,7 +92,6 @@ loader.load( 'scissors.glb', function ( gltf ) {
 function animate(){
     requestAnimationFrame(animate);
     obj.rotation.y += 0.01;
-    
     renderer.render( scene, camera );
 }
 
